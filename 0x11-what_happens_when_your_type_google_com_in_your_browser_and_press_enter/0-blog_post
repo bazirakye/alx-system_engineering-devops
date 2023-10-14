@@ -1,0 +1,85 @@
+DNS Request:
+
+Your browser sends a DNS request to a DNS server to resolve the domain name "www.google.com" into an IP address.
+
+The DNS server searches its local cache and, if necessary, forwards the request up the DNS hierarchy to find the authoritative DNS server responsible for the google.com domain.
+
+The authoritative DNS server returns the IP address associated with "www.google.com" to your browser.
+
+TCP/IP Connection:
+
+Your browser initiates a connection to the IP address obtained in the previous step using the TCP/IP protocol.
+
+This connection is established through a series of handshakes to ensure a reliable and ordered data transfer between your computer and the Google server.
+
+ Firewall:
+
+As data packets flow between your browser and the Google server, they may pass through various firewalls and network security measures.
+
+Firewalls can be configured to allow or block traffic based on security policies, but in most cases, they allow standard web traffic.
+
+HTTPS/SSL Encryption:
+
+Since you specified "https://" in the URL, your browser and the Google server establish an encrypted connection using HTTPS.
+
+This encryption is provided by SSL (or its successor, TLS), ensuring that data transferred between your browser and the server remains confidential and secure.
+
+Load-Balancer:
+
+Google, being a massive web service, uses load balancers to evenly distribute incoming traffic across multiple servers.
+
+The load balancer decides which server will handle your request to prevent overloading any single server. This improves performance and ensures high availability.
+
+Web Server:
+
+Your request, now decrypted and identified, is sent to one of Google's web servers.
+
+The web server processes the request, which might involve interpreting your search query, retrieving static content (like HTML and CSS), and possibly interacting with application servers.
+
+Application Server:
+
+Behind the web server, an application server may handle dynamic content generation .
+
+In Google's case, the application server processes your search query, interacts with databases, and personalizes search results based on your preferences and location.
+
+Database:
+
+Google's application servers communicate with databases to retrieve search results, advertisements, and other relevant information.
+
+Databases are highly optimized for speed and efficiency, as they must handle a vast amount of data and serve results rapidly
+
+Response Generation:
+
+The database returns the requested data to the application server. In the case of Google, this data could be search results, ads, or other content.
+
+Data Formatting:
+
+The application server formats the data received from the database into a web page, which includes HTML, CSS, JavaScript, and any other necessary resources.
+
+Content Assembly:
+
+The web server assembles all the components of the web page, which could include HTML files, stylesheets, JavaScript files, images, and other assets.
+
+Compression:
+
+To optimize data transfer, web servers often compress the data before sending it to the browser. This minimizes the amount of data that needs to be transferred over the network, resulting in faster loading times.
+
+Response to Browser:
+
+The complete web page, along with all associated resources, is sent as a response to your browser. This response contains all the information needed to render the Google search results page.
+
+Rendering in the Browser:
+
+Your browser receives the response and begins the rendering process. It parses the HTML, applies styles from CSS, and executes JavaScript to render the webpage as you see it on your screen.
+
+User Interaction:
+
+Once the page is fully loaded, you can interact with it. In the case of Google, you can type in your search query, click on search results, and explore various features.
+
+Ongoing Communication:
+
+As you interact with the web page (e.g., by scrolling, clicking, or typing), your browser may send additional requests to the server to fetch more data or execute specific actions. These requests follow a similar process of DNS resolution, secure connections, load balancing, and so on.
+
+Caching:
+
+To improve performance, web browsers often cache resources locally. This means that on subsequent visits to the same site, some elements (e.g., images, stylesheets) may be loaded from your local cache rather than from the server, reducing load times.
