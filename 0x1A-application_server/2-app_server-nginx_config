@@ -2,14 +2,26 @@ server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
-    server_name 35.153.33.62
+    # use ip of server as domain name
+    server_name 35.153.33.62;
 
-    add_header X-Served-By 384032-web-01;
+    add_header X-Served-By 24847-web-01;
+    root   /var/www/html;
+    index  index.html index.htm;
 
-    location = /airbnb-onepage/ {
-        proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+    # serve /airbnb-onepage/ route from AirBnB_clone_v2
+    location /airbnb-onepage/ {
+	proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
     }
 
+    location /hbnb_static {
+        alias /data/web_static/current;
+        index index.html index.htm;
+    }
+
+    location /redirect_me {
+        return 301 http://cuberule.com/;
+    }
     error_page 404 /404.html;
     location /404 {
       root /var/www/html;
