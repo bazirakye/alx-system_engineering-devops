@@ -1,0 +1,50 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    # use ip of server as domain name
+    server_name 3.238.180.65;
+
+    add_header X-Served-By 24847-web-01;
+    root   /var/www/html;
+    index  index.html index.htm;
+
+    # serve /airbnb-onepage/ route from AirBnB_clone_v2
+    location /airbnb-onepage/ {
+	proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+    }
+
+    # Serve /number_odd_or_even/ route on AirBnB_clone_v2
+    location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+        proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+    }
+    
+    # Serve  API on AirBNB_clone_v3
+    location /api {
+        proxy_pass http://127.0.0.1:5002/api;
+    }
+    
+    # server /2-hbnb of airbnb_clone_v4
+    location / {
+        proxy_pass http://127.0.0.1:5003/2-hbnb;
+    }
+
+    # serve static content
+    location /static {
+        proxy_pass http://127.0.0.1:5003;
+    }
+
+    location /hbnb_static {
+        alias /data/web_static/current;
+        index index.html index.htm;
+    }
+
+    location /redirect_me {
+        return 301 http://cuberule.com/;
+    }
+    error_page 404 /404.html;
+    location /404 {
+      root /var/www/html;
+      internal;
+    }
+}
